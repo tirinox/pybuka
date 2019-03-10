@@ -7,7 +7,7 @@ Edit in pybuka.py RYTHM and BPM variables.
 
 RYTHM rules:
 
-* D - loud doum sound
-* T - loud tek sound
-* t and k - weak tek and ka sound
-* - pause
+* `D` - loud doum sound
+* `T` - loud tek sound
+* `t` and `k` - weak tek and ka sound
+* `-` pause
