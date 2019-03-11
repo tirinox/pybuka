@@ -11,3 +11,7 @@ RYTHM rules:
 * `T` - loud tek sound
 * `t` and `k` - weak tek and ka sound
 * `-` pause
+
+Example:
+```RYTHM = 'D-T---T-D---T-tkD-T---T-D--kS---'  # Maqsum
+BPM = 120```

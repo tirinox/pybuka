@@ -3,7 +3,8 @@ from pygame import mixer
 import time
 
 
-RYTHM = 'D-T---T-D---T-tkD-T---T-D---T---'  # Maksum
+RYTHM = 'D-T---T-D---T-tkD-T---T-D--kS---'  # Maqsum
+# RYTHM = 'D-k-D-S-tktkD-tkT-tk'  # Baladi
 BPM = 120
 
 
@@ -58,4 +59,6 @@ player.add_sound('D', 'dum')
 player.add_sound('T', 'tek')
 player.add_sound('t', 'tek', 0.2)
 player.add_sound('k', 'tek', 0.2)
+player.add_sound('S', 'slap')
+player.add_sound('s', 'slap', 0.3)
 play_forever(player, RYTHM, BPM)
