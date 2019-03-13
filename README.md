@@ -13,5 +13,7 @@ RYTHM rules:
 * `-` pause
 
 Example:
-```RYTHM = 'D-T---T-D---T-tkD-T---T-D--kS---'  # Maqsum
-BPM = 120```
+~~~~
+RYTHM = 'D-T---T-D---T-tkD-T---T-D--kS---'  # Maqsum
+BPM = 120
+~~~~
