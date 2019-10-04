@@ -1,11 +1,13 @@
 import pygame
 from pygame import mixer
 import time
+import sys
 
 
-RYTHM = 'D-T---T-D---T-tkD-T---T-D--kS---'  # Maqsum
-# RYTHM = 'D-k-D-S-tktkD-tkT-tk'  # Baladi
-BPM = 120
+DEMO_RHYMTH = 'D-T---T-D---T-tkD-T---T-D--kS---'  # Maqsum
+# DEMO_RHYMTH = 'D-k-D-S-tktkD-tkT-tk'  # Baladi
+
+DEFAULT_BPM = 120
 
 
 mixer.pre_init(44100, -16, 1, 2048)
@@ -29,6 +31,7 @@ class SoundPlayer:
             self.sounds[name] = sound
 
         self.map[note] = (sound, channel)
+        return self
 
     def play_note(self, note):
         if note in self.map:
@@ -54,11 +57,24 @@ def play_forever(player: SoundPlayer, rythm, bpm):
         time.sleep(delay)
 
 
-player = SoundPlayer()
-player.add_sound('D', 'dum')
-player.add_sound('T', 'tek')
-player.add_sound('t', 'tek', 0.2)
-player.add_sound('k', 'tek', 0.2)
-player.add_sound('S', 'slap')
-player.add_sound('s', 'slap', 0.3)
-play_forever(player, RYTHM, BPM)
+def create_sound_player():
+    player = SoundPlayer()
+    player\
+        .add_sound('D', 'dum')\
+        .add_sound('T', 'tek')\
+        .add_sound('t', 'tek', 0.2)\
+        .add_sound('k', 'tek', 0.2)\
+        .add_sound('S', 'slap')\
+        .add_sound('s', 'slap', 0.3)
+    return player
+
+
+if __name__ == '__main__':
+    mixer.pre_init(44100, -16, 1, 2048)
+    pygame.init()
+    player = create_sound_player()
+
+    rhythm = sys.argv[1] if len(sys.argv) >= 2 else DEMO_RHYMTH
+    bpm = int(sys.argv[2]) if len(sys.argv) == 3 else DEFAULT_BPM
+
+    play_forever(player, rhythm, bpm)
